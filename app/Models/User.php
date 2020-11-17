@@ -58,4 +58,13 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    /**
+     * Related registration log
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function registrationLog() {
+        return $this->hasOne(\App\Models\UserRegistrationLog::class);
+    }
 }
